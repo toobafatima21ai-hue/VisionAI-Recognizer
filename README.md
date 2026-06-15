@@ -39,52 +39,7 @@ VisionAI Recognizer is a computer vision web application that lets users upload 
 
 ---
 
-## 🚀 Run Locally
 
-### Prerequisites
-
-- Python **3.10 or 3.11** recommended (some dependencies lack pre-built wheels for newer Python versions on Windows)
-- pip
-- Internet connection for first-run model downloads
-
-### 1. Clone the repository
-
-```bash
-git clone https://github.com/toobafatima21ai-hue/visionai-recognizer.git
-cd visionai-recognizer
-```
-
-### 2. Create and activate a virtual environment
-
-**macOS / Linux:**
-```bash
-python -m venv venv
-source venv/bin/activate
-```
-
-**Windows (PowerShell):**
-```powershell
-python -m venv venv
-venv\Scripts\Activate.ps1
-```
-
-> If PowerShell blocks the activation script, run:
-> ```powershell
-> Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
-> ```
-
-### 3. Install dependencies
-
-```bash
-pip install --upgrade pip
-pip install -r requirements.txt
-```
-
-> **PyTorch note:** EasyOCR and YOLOv8 depend on PyTorch. If installation is slow or fails, install the CPU-only build first:
-> ```bash
-> pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu
-> pip install -r requirements.txt
-> ```
 
 ### 4. Run the application
 
