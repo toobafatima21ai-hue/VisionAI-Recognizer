@@ -8,7 +8,7 @@ VisionAI Recognizer is a computer vision web application that lets users upload 
 
 ## 🌐 Live Demo
 
-** [Try it now](https://visionai-recognizerafvh9zlxgxg66py274ximv.streamlit.app/)**
+  https://visionai-recognizerafvh9zlxgxg66py274ximv.streamlit.app/
 
 >  On first load, the OCR and object detection models download automatically (one-time setup) — please allow a moment for the app to initialize.
 
