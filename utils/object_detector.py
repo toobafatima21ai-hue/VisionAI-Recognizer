@@ -101,6 +101,18 @@ def detect_objects(
     if image is None:
         raise ValueError("detect_objects: input image is None")
 
+    # YOLOv8 requires a 3-channel (color) image. If the preprocessing
+    # pipeline produced a single-channel grayscale/binary image (e.g.
+    # 'grayscale' or 'threshold' steps were applied), convert it back
+    # to 3-channel BGR so the model's first conv layer (expects 3
+    # input channels) doesn't raise a shape-mismatch error.
+    if len(image.shape) == 2:
+        image = cv2.cvtColor(image, cv2.COLOR_GRAY2BGR)
+    elif image.shape[2] == 1:
+        image = cv2.cvtColor(image, cv2.COLOR_GRAY2BGR)
+    elif image.shape[2] == 4:
+        image = cv2.cvtColor(image, cv2.COLOR_BGRA2BGR)
+
     start = time.time()
     results = model.predict(
         source=image,
@@ -160,7 +172,12 @@ def draw_object_boxes(
     if image is None:
         raise ValueError("draw_object_boxes: input image is None")
 
-    output = image.copy()
+    # Ensure 3-channel output so colored boxes/labels are visible even
+    # if a grayscale/binary preprocessed image was passed in.
+    if len(image.shape) == 2:
+        output = cv2.cvtColor(image, cv2.COLOR_GRAY2BGR)
+    else:
+        output = image.copy()
 
     for det in detections:
         x1, y1, x2, y2 = det["bbox"]
