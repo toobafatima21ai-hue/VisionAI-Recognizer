@@ -1,0 +1,41 @@
+# Virtual environment
+venv/
+env/
+ENV/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyc
+
+# Streamlit
+.streamlit/
+
+# Model weight caches (downloaded at runtime)
+models/*.pt
+*.pt
+*.onnx
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+
+# Environment variables
+.env
+
+# Logs
+*.log
+
+# Sample/test outputs
+*.csv
+*.txt
+!requirements.txt
+!README.md
+
